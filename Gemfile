@@ -35,6 +35,9 @@ end
 # Include Bootstrap
 gem 'bootstrap-sass', '~> 3.3.5'
 
+# Include Pagination
+gem 'will_paginate', '~> 3.0.6'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
