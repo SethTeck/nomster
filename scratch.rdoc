@@ -1,0 +1,1 @@
+Place.create(:name => "Arigato Sushi", :address => "1225 State St, Santa Barbara, CA", :description => "It's easy to rack up a late night sushi bill at Arigato, with friends. Aside from the top tier quality and taste, you will savor the warm and exciting atmosphere. Take your time, and soak it in.")
