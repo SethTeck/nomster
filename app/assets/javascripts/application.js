@@ -15,3 +15,10 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+//= require data-confirm-modal
+
+dataConfirmModal.setDefaults({
+  title: 'Are you sure?',
+  commit: 'Yes Please',
+  cancel: 'No Thank You'
+});
