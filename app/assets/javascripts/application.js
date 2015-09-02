@@ -19,6 +19,6 @@
 
 dataConfirmModal.setDefaults({
   title: 'Are you sure?',
-  commit: 'Yes Please',
-  cancel: 'No Thank You'
+  commit: 'Yup',
+  cancel: 'Nope'
 });
