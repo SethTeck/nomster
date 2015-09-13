@@ -1,9 +1,13 @@
+.place-desc {
+  font-size: 20px;
+}
+
 .clear {
   clear: both;
 }
 
 #map {
-  height: 400px;
+  height: 300px;
   width: 100%;
       }
 
@@ -97,23 +101,6 @@ h8 {
 }
 
 .navbar-inverse .navbar-collapse .navbar-link:active {
-  color: #00E1FF;
-}
-
-a {
-  color: #1F1F1F;
-}
-
-a:visited {
-  color: #1F1F1F;
-}
-
-a:hover {
-  color: #00B2C9;
-  text-decoration: none;
-}
-
-a:active {
   color: #00E1FF;
 }
 

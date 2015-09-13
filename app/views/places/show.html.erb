@@ -1,8 +1,8 @@
   <div class="booyah-box col-xs-10 col-xs-offset-1">
-	<h1><%= @place.name %><h1>
+	<h1><%= @place.name %></h1>
 	<i><%= @place.address %></i>
     <br/><br/>
-	<p><%= @place.description %></p>
+	<p class ="place-desc"><%= @place.description %></p>
 
    <% if @place.latitude.present? && @place.longitude.present? %>
 
@@ -12,7 +12,7 @@ function initMap() {
   var myLatLng = {lat: <%= @place.latitude %>, lng: <%= @place.longitude %>};
 
   var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 12,
+    zoom: 13,
     center: myLatLng
   });
 
@@ -31,6 +31,17 @@ function initMap() {
 
    <% end %>
 
+   <br />
+
+   <div>
+  <h2>Add a Photo</h2>
+  <%= simple_form_for @photo, :url => place_photos_path(@place)  do |f| %>
+    <%= f.input :caption %>
+    <br />
+    <%= f.submit 'Add Photo', :class => 'btn btn-primary' %>
+  <% end %>
+</div>
+
 <br />
 
         <div class="pull-right">
@@ -40,6 +51,9 @@ function initMap() {
 		<% end %>
 	</div>
 </div>
+
+
+
 
 <div class="clear"></div>
 
@@ -86,3 +100,6 @@ function initMap() {
       </blockquote>
     </div>
   <% end %>
+
+
+
