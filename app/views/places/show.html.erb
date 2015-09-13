@@ -28,13 +28,21 @@ function initMap() {
         src="https://maps.googleapis.com/maps/api/js?signed_in=true&callback=initMap"></script>
 
    <div id="map"></div>
-
    <% end %>
 
    <br />
 
+   <h1>Photos</h1>
+<% @place.photos.each do |photo| %>
+  <div>
+      <b><%= photo.caption %></b>
+  </div>
+  <% end %>
+
+<br />
    <div>
   <h2>Add a Photo</h2>
+  
   <%= simple_form_for @photo, :url => place_photos_path(@place)  do |f| %>
     <%= f.input :caption %>
     <br />
