@@ -7,12 +7,11 @@
 		<% if place.user.present? %>
 		<small>- <%= place.user.email %></small>
 		<% end %>
-		<br />
 
 	<% if place.photos.present? %>
 	<% place.photos.each do |photo| %>
    	<div class="col-xs-12 col-sm-6">
-      <%= image_tag photo.picture, :class => "img-responsive" %>
+    <%= image_tag photo.picture, :class => "img-rounded img-responsive" %>
    	  <b><%= photo.caption %></b>
   	</div>
   	<% end %>
