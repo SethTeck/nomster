@@ -32,43 +32,58 @@ function initMap() {
 
    <br />
 
-   <h1>Photos</h1>
       <% @place.photos.each do |photo| %>
    <div>
       <%= image_tag photo.picture, :class => "img-responsive" %>
-      <b><%= photo.caption %></b>
+   <b><%= photo.caption %></b>
   </div>
   <% end %>
 
 <br />
-   <div>
-  <h2>Add a Photo</h2>
 
-  <%= simple_form_for @photo, :url => place_photos_path(@place)  do |f| %>
-    <%= f.input :picture %>
-    <%= f.input :caption %>
-    <br />
-    <%= f.submit 'Add Photo', :class => 'btn btn-primary' %>
-  <% end %>
+<!-- Comment Modal -->
+<div class="modal fade" id="addPhoto" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Add a comment</h4>
+      </div>
+      <%= simple_form_for @photo, :url => place_photos_path(@place)  do |f| %>
+
+        <div class="modal-body">
+          <%= f.input :picture %>
+          <%= f.input :caption %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <%= f.submit 'Submit', :class => 'btn btn-primary' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>
 
-<br />
 
-        <div class="pull-right">
+    <div class="pull-right">
+
+              <!-- Button trigger modal -->
+<button class="btn btn-info" data-toggle="modal" data-target="#addPhoto">
+  Add a Photo
+</button>
+
 		<% if current_user && current_user === @place.user %>
 			<%= link_to 'Edit', edit_place_path(@place), :class => 'btn btn-primary' %>
 			<%= link_to 'Delete', place_path(@place), :method => :delete, :data => {:confirm => 'Are you very very sure?'}, :class => 'btn btn-danger' %>
 		<% end %>
+
 	</div>
 </div>
 
-
-
-
 <div class="clear"></div>
 
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<!-- Comment Modal -->
+<div class="modal fade" id="addComment" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -83,7 +98,7 @@ function initMap() {
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <%= f.submit "Add a Comment", :class => 'btn btn-primary' %>
+          <%= f.submit "Submit", :class => 'btn btn-primary' %>
         </div>
       <% end %>
     </div>
@@ -92,13 +107,14 @@ function initMap() {
 
 <div class="col-xs-10 col-xs-offset-1">
 <h1 class="pull-left">Comments</h1>
-<!-- Button trigger modal -->
-<button class="btn btn-primary btn-lg pull-right" data-toggle="modal" data-target="#myModal">
+<!-- Comment Button trigger modal -->
+<button class="btn btn-info btn-lg pull-right" data-toggle="modal" data-target="#addComment">
   Add a comment
 </button>
 </div>
 
 <div class="clear"></div>
+
   <% @place.comments.each do |comment| %>
   <div class="col-xs-12 col-sm-6">
     <blockquote>

@@ -5,8 +5,19 @@
 		<p class ="place-desc"><%= place.description %></p><br />
 
 		<% if place.user.present? %>
-		<small><%= place.user.email %></small>
+		<small>- <%= place.user.email %></small>
 		<% end %>
+		<br />
+
+	<% if place.photos.present? %>
+	<% place.photos.each do |photo| %>
+   	<div class="col-xs-12 col-sm-6">
+      <%= image_tag photo.picture, :class => "img-responsive" %>
+   	  <b><%= photo.caption %></b>
+  	</div>
+  	<% end %>
+  <% end %>
+
 	<% if place.comments.present? %>
 		<div class="col-xs-12">
     <blockquote>
@@ -21,4 +32,6 @@
 	</div>
 <% end %>
 
-<%= will_paginate @places %>
+<div class="col-xs-10 col-xs-offset-1">
+	<%= will_paginate @places %>
+</div>
