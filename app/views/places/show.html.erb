@@ -35,6 +35,7 @@ function initMap() {
    <h1>Photos</h1>
 <% @place.photos.each do |photo| %>
   <div>
+      <%= image_tag photo.picture %>
       <b><%= photo.caption %></b>
   </div>
   <% end %>
@@ -42,8 +43,9 @@ function initMap() {
 <br />
    <div>
   <h2>Add a Photo</h2>
-  
+
   <%= simple_form_for @photo, :url => place_photos_path(@place)  do |f| %>
+    <%= f.input :picture %>
     <%= f.input :caption %>
     <br />
     <%= f.submit 'Add Photo', :class => 'btn btn-primary' %>
