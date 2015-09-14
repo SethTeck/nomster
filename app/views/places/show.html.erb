@@ -33,9 +33,9 @@ function initMap() {
    <br />
 
    <h1>Photos</h1>
-<% @place.photos.each do |photo| %>
-  <div>
-      <%= image_tag photo.picture %>
+      <% @place.photos.each do |photo| %>
+   <div>
+      <%= image_tag photo.picture, :class => "img-responsive" %>
       <b><%= photo.caption %></b>
   </div>
   <% end %>
